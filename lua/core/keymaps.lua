@@ -144,3 +144,8 @@ keymap('n', '<leader>t6', ':tabnext 6<CR>', { noremap = true, silent = true })
 keymap('n', '<leader>t7', ':tabnext 7<CR>', { noremap = true, silent = true })
 keymap('n', '<leader>t8', ':tabnext 8<CR>', { noremap = true, silent = true })
 keymap('n', '<leader>t9', ':tabnext 9<CR>', { noremap = true, silent = true })
+
+-- 插件：nvim-tree.lua
+keymap('n', '<leader>nt', '<Cmd>NvimTreeToggle<CR>', { noremap = true, silent = true })
+
+-- 插件：

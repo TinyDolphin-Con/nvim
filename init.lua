@@ -20,5 +20,15 @@
 --
 -- ------------------------------------------------------------
 
-require("core.basic")
-require("core.keymaps")
+require('core.basic')
+require('core.keymaps')
+
+require('plugins.plugins-setup')
+require('plugins.color')
+require('plugins.lualine')
+require('plugins.nvim-tree')
+require('plugins.bufferline')
+require('plugins.comment')
+require('plugins.nvim-treesitter')
+require('plugins.nvim-autopairs')
+require('plugins.gitsigns')

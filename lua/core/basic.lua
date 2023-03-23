@@ -16,21 +16,8 @@
 --
 --  Sections:
 --     -> General
---     -> VIM user interface
---     -> Colors and Fonts
---     -> Files and backups
---     -> Text, tab and indent related
---     -> Visual mode related
---     -> Moving around, tabs and buffers
---     -> Status line
---     -> Editing mappings
---     -> vimgrep searching and cope displaying
---     -> Spell checking
---     -> Misc
---     -> Helper functions
 --
 -- ------------------------------------------------------------
-
 
 -- 启用全局选项处理
 local opt = vim.api.nvim_set_option
@@ -59,13 +46,13 @@ vim.cmd([[
   augroup CursorLineOnlyInActiveWindow
     autocmd!
     " 离开插入模式时，显示相对行数
-    autocmd InsertLeave * setlocal relativenumber signcolumn=auto
+    autocmd InsertLeave * setlocal cursorline relativenumber
     " 进入插入模式时，显示普通行数
-    autocmd InsertEnter * setlocal norelativenumber signcolumn=number
+    autocmd InsertEnter * setlocal nocursorline norelativenumber
     " 进入缓冲区后，显示当前列、相对行数、自动显示标记栏
-    autocmd BufEnter * setlocal cursorline relativenumber signcolumn=auto
+    autocmd BufEnter * setlocal cursorline relativenumber
     " 离开缓冲区后
-    autocmd BufLeave * setlocal nocursorline norelativenumber signcolumn=number
+    autocmd BufLeave * setlocal nocursorline norelativenumber
   augroup END
 ]])
 
