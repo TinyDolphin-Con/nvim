@@ -24,30 +24,72 @@ vim.cmd([[
 
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
-  -- UI
-  use 'folke/tokyonight.nvim' -- 主题
-  use {
-    'nvim-lualine/lualine.nvim',  -- 状态栏
-    requires = { 'kyazdani42/nvim-web-devicons', opt = true }  -- 状态栏图标
+  -- UI && 颜色主题
+  -- 主题
+  use { 'folke/tokyonight.nvim' }
+  -- 状态栏
+  use { 'nvim-lualine/lualine.nvim', requires = 'kyazdani42/nvim-web-devicons' }
+  -- 文档树
+  use { 'nvim-tree/nvim-tree.lua', requires = 'nvim-tree/nvim-web-devicons' }
+  -- 标签栏
+  use { 'akinsho/bufferline.nvim', requires = 'nvim-tree/nvim-web-devicons' }
+  -- 快速切换窗口（支持 tmux）（快捷键 C-hjkl）
+  use { 'christoomey/vim-tmux-navigator' }
+  -- 窗口选择插件
+  use { 's1n7ax/nvim-window-picker', config = function()
+    require('window-picker').setup{ selection_chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'} end
   }
-  use {
-    'nvim-tree/nvim-tree.lua',  -- 文档树
-    requires = {
-      'nvim-tree/nvim-web-devicons', -- 文档树图标
-    }
-  }
-  use "akinsho/bufferline.nvim" -- 标签栏
-  use "christoomey/vim-tmux-navigator" -- 用ctl-hjkl来定位窗口
+  -- 缩进对齐线
+  use { 'lukas-reineke/indent-blankline.nvim' }
 
-  -- Edit
-  use 'numToStr/Comment.nvim' -- 快速注释代码
-  use "nvim-treesitter/nvim-treesitter" -- 语法高亮
-  use "p00f/nvim-ts-rainbow" -- 配合treesitter，不同括号颜色区分
-  use "windwp/nvim-autopairs" -- 自动补全括号
+  -- 高效编码
+  -- 快速注释代码
+  use { 'numToStr/Comment.nvim', config = function()
+    require('Comment').setup() end
+  }
+  -- 语法高亮
+  use { 'nvim-treesitter/nvim-treesitter', requires = 'p00f/nvim-ts-rainbow' }
+  -- 自动补全括号
+  use { 'windwp/nvim-autopairs' }
+
+  -- 搜索
+  -- 强大的搜索工具
+  use {
+    'nvim-telescope/telescope.nvim', tag = '0.1.0',
+    requires = { {'nvim-lua/plenary.nvim'} , { 'nvim-treesitter/nvim-treesitter',
+      run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
+    }}
+  }
+  -- fzf 替换默认搜索后端，可提升 telescope 搜索效率
+  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+  -- 窗口内搜索并快速跳转
+  use { 'phaazon/hop.nvim', config = function()
+    require('hop').setup { keys = 'etovxqpdygfblzhckisuran' } end
+  }
+
+  -- 书签
+
+  -- C/C++
+  -- 智能语法补全
+  use { 'neoclide/coc.nvim', branch = 'release' }
+  -- 搜索 coc 提供的符号
+  use { 'fannheyward/telescope-coc.nvim' }
+  -- 代码片段库
+  use { 'rafamadriz/friendly-snippets' }
+  -- 代码片段引擎
+  use { 'L3MON4D3/LuaSnip',
+    config = function()
+      require("luasnip.loaders.from_vscode").lazy_load({ paths = { "~/.local/share/nvim/site/pack/packer/start/friendly-snippets/snippets" } })
+    end
+  }
 
   -- Git
+  -- 全面的 Git 客户端功能
+  use { 'tpope/vim-fugitive' }
+  -- 左则git提示
+  use { 'lewis6991/gitsigns.nvim' }
 
-  use "lewis6991/gitsigns.nvim" -- 左则git提示
+  -- 其他
 
   if packer_bootstrap then
     require('packer').sync()
