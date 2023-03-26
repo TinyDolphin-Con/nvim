@@ -19,16 +19,18 @@
 --     -> Loading
 --
 -- ------------------------------------------------------------
-
-require('core.basic')
-require('core.keymaps')
-
 require('plugins.plugins-setup')
-require('plugins.color')
+
 require('plugins.lualine')
 require('plugins.nvim-tree')
 require('plugins.bufferline')
-require('plugins.comment')
+require('plugins.indent-blankline')
 require('plugins.nvim-treesitter')
 require('plugins.nvim-autopairs')
-require('plugins.gitsigns')
+require('plugins.telescope')
+require('plugins.coc')
+require('plugins.toggleterm')
+
+require('core.basic')
+require('core.keymaps')
+require('plugins.color')
