@@ -25,8 +25,14 @@ vim.cmd([[
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
   -- UI && 颜色主题
+  -- 启动界面
+  use { 'mhinz/vim-startify' }
   -- 主题
   use { 'folke/tokyonight.nvim' }
+  -- 透明背景插件
+  use { 'xiyaowong/transparent.nvim', config = function()
+    require("transparent").setup({}) end
+  }
   -- 状态栏
   use { 'nvim-lualine/lualine.nvim', requires = 'kyazdani42/nvim-web-devicons' }
   -- 文档树
@@ -88,6 +94,8 @@ return require('packer').startup(function(use)
   use { 'tpope/vim-fugitive' }
   -- 左则git提示
   use { 'lewis6991/gitsigns.nvim' }
+  -- 智能终端
+  use { 'akinsho/toggleterm.nvim' }
 
   -- 其他
 

@@ -32,7 +32,8 @@
 -- ------------------------------------------------------------
 
 -- 启用键盘映射
-local keymap = vim.api.nvim_set_keymap
+-- local keymap = vim.api.nvim_set_keymap
+local keymap = vim.keymap.set
 
 -- 设置 leader 键
 vim.g.mapleader = " "
@@ -45,11 +46,11 @@ keymap('n', 'Q', ':q<CR>', { noremap = true, silent = true })
 -- 快速保存并退出
 keymap('n', 'qw', ':wq<CR>', { noremap = true, silent = true })
 
--- 选中全文
-keymap('n', 'VV', '<Esc>gg0vG$<CR>', { noremap = true, silent = true })
+-- 选中全文（普通模式、可视模式和选择模式）
+keymap({'n', 'x'}, 'VV', '<Esc>gg0vG$<CR>', { noremap = true, silent = true })
 
 -- 取消搜索高亮
-keymap('', '<leader><CR>', ':nohlsearch<CR>', { noremap = true, silent = true })
+keymap({'n', 'x'}, '<leader><CR>', ':nohlsearch<CR>', { noremap = true, silent = true })
 
 -- 插入模式下移动光标
 keymap('i', '<C-k>', '<Up>', { noremap = true, silent = true })
@@ -227,3 +228,15 @@ keymap('n', '<leader>gs', '<Cmd>Git status<CR>', { noremap = true, silent = true
 keymap('n', '<leader>gb', '<Cmd>Git blame<CR>', { noremap = true, silent = true })
 -- git diff：显示当前文件与上一次提交的 diff
 keymap('n', '<leader>gd', '<Cmd>Git diff<CR>', { noremap = true, silent = true })
+
+-- 插件：akinsho/toggleterm.nvim 智能终端
+vim.cmd([[
+  autocmd TermEnter term://*toggleterm#*
+      \ tnoremap <silent><c-t> <Cmd>exe v:count1 . "ToggleTerm"<CR>
+]])
+-- 开启终端
+-- 支持多终端：2<C-t> 即打开终端 2
+keymap('n', '<C-t>', '<Cmd>exe v:count1 . "ToggleTerm"<CR><CR>', { noremap = true, silent = true })
+-- 退出终端模式
+keymap('t', '<Esc>', '<C-\\><C-n>', { noremap = true, silent = true })
+keymap('t', 'Q', '<Cmd>close<CR>', { noremap = true, silent = true })

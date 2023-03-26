@@ -29,6 +29,7 @@ require('plugins.nvim-treesitter')
 require('plugins.nvim-autopairs')
 require('plugins.telescope')
 require('plugins.coc')
+require('plugins.toggleterm')
 
 require('core.basic')
 require('core.keymaps')
