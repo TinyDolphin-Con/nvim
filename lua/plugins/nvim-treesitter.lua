@@ -2,8 +2,7 @@ require 'nvim-treesitter.configs'.setup {
   -- If TS highlights are not enabled at all, or disabled via `disable` prop, highlighting will fallback to default Vim syntax highlighting
   highlight = {
     enable = true,
-    disable = { 'org', 'c', 'cpp', 'diff', 'markdown' },
-    additional_vim_regex_highlighting = { 'org' },
+    additional_vim_regex_highlighting = false;
   },
   -- 添加不同语言
   ensure_installed = { "vim", "help", "bash", "c", "cpp", "javascript", "json", "lua", "python", "typescript", "tsx", "css", "rust", "markdown", "markdown_inline" }, -- one of "all" or a list of languages

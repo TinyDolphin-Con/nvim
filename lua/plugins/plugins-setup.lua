@@ -29,7 +29,7 @@ return require('packer').startup(function(use)
   use { 'mhinz/vim-startify' }
   -- 主题
   use { 'folke/tokyonight.nvim' }
-  -- 透明背景插件
+  -- 透明背景插件，需要手动启动（:TransparentEnable）
   use { 'xiyaowong/transparent.nvim', config = function()
     require("transparent").setup({}) end
   }

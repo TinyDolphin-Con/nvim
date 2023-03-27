@@ -59,6 +59,7 @@
     "lua",
     "bash"
   ],
+  "snippets.ultisnips.pythonPrompt": false,
   "snippets.userSnippetsDirectory": "$HOME/.config/nvim/lua/plugins/ultisnips/", // 自定义 snippets 文件目录
   // "snippets.userSnippetsDirectory": ["$HOME/.config/nvim/lua/plugins/ultisnips/" ]
   "python.formatting.provider": "black",
