@@ -128,12 +128,14 @@ opt.swapfile = false
 -- 启用持久化 undo
 opt.undofile = true
 -- 设置 undo 文件的保存路径
-opt.undodir = "/tmp/nvim/undo"
+opt.undodir = '/tmp/nvim/undo'
 
 -- 设置折叠
-opt.foldmethod = 'marker'
--- 折叠级别
-opt.foldlevel = 0
+opt.foldmethod = 'expr'
+-- 折叠级别（全部折叠状态）
+opt.foldlevel = 999
+-- 设置折叠表达式
+opt.foldexpr = 'coc#util#has_provider("folding") ? "nvim_treesitter#foldexpr()" : "0"'
 
 -- 使用空格而非制表符
 opt.expandtab = true
