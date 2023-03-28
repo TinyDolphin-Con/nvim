@@ -191,25 +191,27 @@ keymap('n', 'SS', '<Cmd>HopChar2<CR>', { noremap = true, silent = true })
 -- 插件：telescope.nvim 强大的搜索工具 配置：
 -- File & Vim Picker
 -- 当前工作目录中，搜索文件
-keymap('n', '<leader>ff', '<Cmd>Telescope find_files<CR>', { noremap = true, silent = true })
+keymap('n', '<leader>ff', require('telescope.builtin').find_files, { noremap = true, silent = true })
 -- 搜索历史文件
-keymap('n', '<leader>fm', '<Cmd>Telescope oldfiles<CR>', { noremap = true, silent = true })
+keymap('n', '<leader>fm', require('telescope.builtin').oldfiles, { noremap = true, silent = true })
 -- 搜索已打开的 buffer 缓冲区
-keymap('n', '<leader>fb', '<Cmd>Telescope buffers<CR>', { noremap = true, silent = true })
+keymap('n', '<leader>fb', require('telescope.builtin').buffers, { noremap = true, silent = true })
 -- 当前工作目录中，搜索字符串
-keymap('n', '<leader>fl', '<Cmd>Telescope live_grep<CR>', { noremap = true, silent = true })
+keymap('n', '<leader>fl', require('telescope.builtin').live_grep, { noremap = true, silent = true })
 -- 当前工作目录中，搜索当前光标或选择的字符串
-keymap('n', '<leader>fL', '<Cmd>Telescope grep_string<CR>', { noremap = true, silent = true })
+keymap('n', '<leader>fL', require('telescope.builtin').grep_string, { noremap = true, silent = true })
+-- 重复上一次搜索
+keymap('n', '<leader>fr', require('telescope.builtin').resume, { noremap = true, silent = true })
 -- Git Picker
 -- 列出 git 提交历史版本
-keymap('n', '<leader>fgc', '<Cmd>Telescope git_commits<CR>', { noremap = true, silent = true })
+keymap('n', '<leader>fgc', require('telescope.builtin').git_commits, { noremap = true, silent = true })
 -- 列出 git 所有文件的修改
-keymap('n', '<leader>fgs', '<Cmd>Telescope git_status<CR>', { noremap = true, silent = true })
+keymap('n', '<leader>fgs', require('telescope.builtin').git_status, { noremap = true, silent = true })
 -- 列出 git 所有暂存文件
-keymap('n', '<leader>fgS', '<Cmd>Telescope git_stash<CR>', { noremap = true, silent = true })
+keymap('n', '<leader>fgS', require('telescope.builtin').git_stash, { noremap = true, silent = true })
 -- treesitter
 -- 列出所有函数名称、变量等
-keymap('n', '<leader>fv', '<Cmd>Telescope treesitter<CR>', { noremap = true, silent = true })
+keymap('n', '<leader>fv', require('telescope.builtin').treesitter, { noremap = true, silent = true })
 -- coc Picker
 -- 搜索当前光标下的符号引用
 keymap('n', '<leader>cr', '<Cmd>Telescope coc references<CR>', { noremap = true, silent = true })
