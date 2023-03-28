@@ -74,6 +74,7 @@ keymap('n', '<leader>P', ':setlocal paste!<CR>', { noremap = true, silent = true
 -- zf{motion} ：将指定动作的范围进行折叠（e.g. 将整个段落进行折叠 zfap）
 -- zd ：删除折叠
 -- zo ：打开当前折叠
+-- zc ：关闭当前折叠
 -- zj ：跳转到下一个折叠
 -- zk ：跳转到上一个折叠
 -- zR ：打开所有折叠

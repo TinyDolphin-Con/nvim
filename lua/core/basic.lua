@@ -85,9 +85,6 @@ opt.showmatch = true
 -- 高亮显示匹配括号的时间（单位：十分之一秒）
 opt.matchtime = 15
 
--- 在左边增加一列显示折叠栏
-opt.foldcolumn = '1'
-
 -- 光标距离buffer的顶部或底部保持 5 行距离
 opt.scrolloff = 5
 opt.sidescrolloff = 5
@@ -131,11 +128,17 @@ opt.undofile = true
 opt.undodir = '/tmp/nvim/undo'
 
 -- 设置折叠
-opt.foldmethod = 'expr'
--- 折叠级别（全部折叠状态）
-opt.foldlevel = 999
--- 设置折叠表达式
-opt.foldexpr = 'coc#util#has_provider("folding") ? "nvim_treesitter#foldexpr()" : "0"'
+opt.foldenable = true
+-- 设置折叠函数
+opt.foldmethod = 'indent'
+-- 设置打开文件时默认的折叠级别
+opt.foldlevelstart = 0
+-- 指定折叠级别的最大深度
+opt.foldlevel = 99
+-- 设置代码折叠的最小行数
+opt.foldminlines = 3
+-- 在左边增加一列显示折叠栏
+opt.foldcolumn = '3'
 
 -- 使用空格而非制表符
 opt.expandtab = true
@@ -177,13 +180,11 @@ opt.report = 0
 
 -- 配置 C++ 风格
 vim.cmd([[
-  autocmd FileType c,cpp set foldmethod=indent nofoldenable
   autocmd FileType c,cpp set commentstring=//\ %s
 ]])
 
 -- 配置 Python 风格
 vim.cmd([[
-  autocmd FileType python set foldmethod=indent nofoldenable
   autocmd FileType python set commentstring=#\ %s
   autocmd FileType python syn keyword pythonDecorator True None False self
 ]])
