@@ -221,13 +221,15 @@ keymap('n', '<leader>ct', '<Cmd>Telescope coc type_definitions<CR>', { noremap =
 -- 搜索当前光标下的符号列表
 keymap('n', '<leader>cs', '<Cmd>Telescope coc document_symbols<CR>', { noremap = true, silent = true })
 
+-- 插件：coc.nvim in lua/plugins/coc.lua
+
 -- 插件：tpope/vim-fugitive 全面的 Git 客户端功能
 -- git status：显示 Git 状态
 keymap('n', '<leader>gs', '<Cmd>Git status<CR>', { noremap = true, silent = true })
 -- git blame：显示 Git 当前文件中每一行的修改信息（包括：提交 ID、作者和该行内容）
 keymap('n', '<leader>gb', '<Cmd>Git blame<CR>', { noremap = true, silent = true })
 -- git diff：显示当前文件与上一次提交的 diff
-keymap('n', '<leader>gd', '<Cmd>Git diff<CR>', { noremap = true, silent = true })
+keymap('n', '<leader>gd', '<Cmd>Git diff %<CR>', { noremap = true, silent = true })
 
 -- 插件：akinsho/toggleterm.nvim 智能终端
 vim.cmd([[
