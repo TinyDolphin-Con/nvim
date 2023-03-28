@@ -67,7 +67,7 @@ return require('packer').startup(function(use)
     }}
   }
   -- fzf 替换默认搜索后端，可提升 telescope 搜索效率
-  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+  -- use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   -- 窗口内搜索并快速跳转
   use { 'phaazon/hop.nvim', config = function()
     require('hop').setup { keys = 'etovxqpdygfblzhckisuran' } end
